@@ -26,6 +26,7 @@ class StringExamples {
     System.out.println( amIEqualString3==amIEqualString4);
 
     StringMethodExamples();
+    StringBuilderExamples();
     }
 
     public static void StringMethodExamples(){
@@ -58,4 +59,42 @@ class StringExamples {
     System.out.println("Does testString start and end with a blank?");
     System.out.println(testString.startsWith(" ") && testString.endsWith(" "));
     }
+
+    public static void StringBuilderExamples() {
+    
+        System.out.println("The StringBuilder is the mutable(chageable) " +
+                           "class.  It has a higher performance cost.");
+        StringBuilder testSb1 = new StringBuilder();
+        System.out.println("TestSb1's value is currently: " + testSb1);
+        //append
+        testSb1.append(true);
+        testSb1.append(10);
+        testSb1.append('a');
+        testSb1.append(20.99);
+        testSb1.append("A String literal");
+        System.out.println("After appending a literal value for each type " +
+                           "testSb1's value is now: " + testSb1);
+        //insert
+        System.out.println("Insert allows you to put stuff anywhere in a " +
+                           "StringBuilder Object.  For example:");
+        System.out.println(testSb1.insert(7, "I AM INSERT! ALL YOUR STRING ARE BELONG TO US!!!"));
+
+        //delete & deleteCharAt
+        System.out.println("delete and deleteCharAt remove characters. " +
+                           testSb1.delete(7,100));
+        // There is no trim method in the StringBuilder class!
+        //reverse
+        System.out.println("reverse prints the revers! Example: " + 
+                           testSb1.reverse());
+        //replace
+        System.out.println("Replace sequence of characters by positions Ex: " +
+                           testSb1.replace(3,5, "_THIS IS REPLACEMENT TEXT_"));
+        //subSequence
+        System.out.println("subSequence retrives a segment of a " +
+                           "StringBuilder object.  This method returns a " +
+                           "CharSequence object. Ex: " + 
+                           testSb1.subSequence(3,9));
+  
+
+    }  
 }
