@@ -64,3 +64,12 @@ class Test {
                                       };
 }
 
+abstract class Vehicle{}
+class Car extends Vehicle{}
+class Bus extends Vehicle{}
+
+class Test2 {
+    Vehicle[] vehicleArray = {new Car(),
+                              new Bus(),
+                              null};
+}
