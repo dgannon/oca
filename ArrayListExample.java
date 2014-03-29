@@ -27,5 +27,16 @@ class ArrayListExample {
         while (iterator.hasNext()) {
             System.out.println(iterator.next());
         }
+
+        //How to modify/replace items in ArrayList objects
+        myArrayList.set(1, "I have replaced this item!");
+        printArrayList(myArrayList); //Should print ArrayList with new item.
+    }
+
+    public static void printArrayList(ArrayList list) {
+        System.out.println("Refacored ArrayList print to method for code reuse.");
+        for (Object element : list) {
+            System.out.println(element);
+        }
     }
 }
