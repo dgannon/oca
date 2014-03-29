@@ -37,6 +37,7 @@ class ArrayListExample {
         myArrayList.remove("one");
         System.out.println("Deleting index 3 and String object \"One\"");
         printArrayList(myArrayList);
+        addingListQuestions();
     }
 
     public static void printArrayList(ArrayList list) {
@@ -44,5 +45,26 @@ class ArrayListExample {
         for (Object element : list) {
             System.out.println(element);
         }
+    }
+
+    public static void addingListQuestions() {
+        System.out.println("Testing how ArrayLists get added and what happens when modifiying the lists after the add");
+        ArrayList<Integer> myList1 = new ArrayList<Integer>();
+        int myInt1 = 1;
+        int myInt2 = 2;
+        myList1.add(myInt1);
+        myList1.add(myInt2);
+        System.out.println("myList1 had the following items");
+        printArrayList(myList1);
+        System.out.println("Changing the value of MyInt1 to see if list reflects that change.");
+        myInt1 = 100;
+        printArrayList(myList1);
+        System.out.println(myInt1);
+        System.out.println("Changing the value of the reference to myInt1 to see if variable value is updated.");
+        for (Integer element : myList1) {
+            element = element + 1;
+        }
+        printArrayList(myList1);
+        System.out.println(myInt1);
     }
 }
