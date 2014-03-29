@@ -31,6 +31,12 @@ class ArrayListExample {
         //How to modify/replace items in ArrayList objects
         myArrayList.set(1, "I have replaced this item!");
         printArrayList(myArrayList); //Should print ArrayList with new item.
+
+        //Deleteing items from an ArrayList Object
+        myArrayList.remove(3);
+        myArrayList.remove("one");
+        System.out.println("Deleting index 3 and String object \"One\"");
+        printArrayList(myArrayList);
     }
 
     public static void printArrayList(ArrayList list) {
