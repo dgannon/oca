@@ -19,6 +19,9 @@ class InheritanceExample{
         // Above doesnt work, below does because its part of the Employee class
         emp.name = "Jane Testcase";
 
+        Interviewer emp2 = new HRExecutive();
+        emp2.name = "This should fail as this defined interface doesn't know about this field.";
+
     }
 }
 
