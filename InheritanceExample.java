@@ -15,7 +15,10 @@ class InheritanceExample{
 
         // Demo accessing a child class by it's parrent class variable type
         Employee emp = new HRExecutive();
-        emp.specialization = new String[] {"Staffing","Getting Rich"};
+        // emp.specialization = new String[] {"Staffing","Getting Rich"};
+        // Above doesnt work, below does because its part of the Employee class
+        emp.name = "Jane Testcase";
+
     }
 }
 
