@@ -12,6 +12,10 @@ class InheritanceExample{
         myManager.attendTraining(new String[] {"Modelnetics","Java 100","MBA 100"});
         HRExecutive myHRExecutive = new HRExecutive();
         myHRExecutive.conductInterview();
+
+        // Demo accessing a child class by it's parrent class variable type
+        Employee emp = new HRExecutive();
+        emp.specialization = new String[] {"Staffing","Getting Rich"};
     }
 }
 
