@@ -5,6 +5,7 @@ class FlowControlExample {
     public static void main(String[] args) {
         ifAndIfElseExample();
         switchStatementsExample();
+        loopExamples();
     }
 
     public static void ifAndIfElseExample() {
@@ -36,6 +37,25 @@ class FlowControlExample {
            default: System.out.println("Default");
                break;
        }   
+    }
+
+    public static void loopExamples(){
+        // The For Loop
+        int countTo = 10;
+        for(int i=1; i<=countTo;i++)
+            System.out.println("Counting to 10... Currently its "+i);
+    
+        // A Nested For Loop
+        int rows = 5;
+        int columns = 10;
+        for(int i=1; i<=rows; i++) {
+            System.out.print("Row "+ i +" |");
+            for(int j=1; j<=columns; j++){
+                System.out.print("[" + j + "]"); 
+            }
+            System.out.println("|");
+        }
+
     }
 
 }
