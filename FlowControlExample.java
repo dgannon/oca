@@ -1,4 +1,4 @@
-import java.io.File;
+import java.util.ArrayList;
 
 class FlowControlExample {
 
@@ -54,6 +54,16 @@ class FlowControlExample {
                 System.out.print("[" + j + "]"); 
             }
             System.out.println("|");
+        }
+
+        // The Enhanced For Loop
+        ArrayList<String> myList = new ArrayList<>();
+        myList.add("Item 1");
+        myList.add("Item 2");
+        myList.add("Item 3");
+        
+        for (String element : myList) {
+            System.out.println(element);
         }
 
     }
