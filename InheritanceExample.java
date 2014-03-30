@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 //package com.dustingannon.code;
 
 class InheritanceExample{
@@ -23,6 +25,14 @@ class InheritanceExample{
         // emp2.name = "This should fail as this defined interface doesn't know about this field.";
         // Above doesnt work, below is an example of what does as Interviewer knowes about the interface methods but not the derived classes variables.
         emp2.conductInterview();
+
+        // Using this new found power its possible to define arrays and ArrayLists of objects that share a base class or interface!
+        ArrayList<Interviewer> interviewTeam = new ArrayList<Interviewer>();
+        interviewTeam.add(myManager);
+        interviewTeam.add(myHRExecutive);
+        interviewTeam.add(emp2);
+        for(Interviewer element : interviewTeam)
+            element.conductInterview();
     }
 }
 
