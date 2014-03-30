@@ -20,8 +20,9 @@ class InheritanceExample{
         emp.name = "Jane Testcase";
 
         Interviewer emp2 = new HRExecutive();
-        emp2.name = "This should fail as this defined interface doesn't know about this field.";
-
+        // emp2.name = "This should fail as this defined interface doesn't know about this field.";
+        // Above doesnt work, below is an example of what does as Interviewer knowes about the interface methods but not the derived classes variables.
+        emp2.conductInterview();
     }
 }
 
