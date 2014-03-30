@@ -7,9 +7,9 @@ class InheritanceExample{
         Programmer myProgrammer = new Programmer();
         Manager myManager = new Manager();
 
-        myProgrammer.attendTraining();
+        myProgrammer.attendTraining(new String[] {"English 101","Spanish 100"});
         myManager.conductInterview();
-        myManager.attendTraining();
+        myManager.attendTraining(new String[] {"Modelnetics","Java 100","MBA 100"});
     }
 }
 
@@ -30,8 +30,11 @@ class Programmer extends Employee implements Trainable{
     String[] programmingLanguages;
     void writeCode() {}
 
-    public void attendTraining(){
+    public void attendTraining(String[] trainingSchedule){
         System.out.println("Prog - attendTraining");
+        for(String element : trainingSchedule)
+            System.out.println("Training in " + element);
+
     }
 }
 
@@ -46,13 +49,15 @@ class Manager extends Employee implements Interviewer, Trainable{
         System.out.println("Mgr - conductInterview");
     }
 
-    public void attendTraining(){
+    public void attendTraining(String[] trainingSchedule){
         System.out.println("Mgr - attendTraining");
+        for(String element : trainingSchedule)
+            System.out.println("Training in " + element);
     }
 }
 
 interface Trainable {
-    public void attendTraining();
+    public void attendTraining(String[] trainingSchedule);
 }
 
 interface Interviewer{
