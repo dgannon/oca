@@ -10,6 +10,8 @@ class InheritanceExample{
         myProgrammer.attendTraining(new String[] {"English 101","Spanish 100"});
         myManager.conductInterview();
         myManager.attendTraining(new String[] {"Modelnetics","Java 100","MBA 100"});
+        HRExecutive myHRExecutive = new HRExecutive();
+        myHRExecutive.conductInterview();
     }
 }
 
@@ -53,6 +55,17 @@ class Manager extends Employee implements Interviewer, Trainable{
         System.out.println("Mgr - attendTraining");
         for(String element : trainingSchedule)
             System.out.println("Training in " + element);
+    }
+}
+
+class HRExecutive extends Employee implements Interviewer{
+    String[] specialization;
+
+    HRExecutive(){
+        System.out.println("Object Created - HRExecutive");
+    }
+    public void conductInterview() {
+        System.out.println("HRExecutive - conducting intervew");
     }
 }
 
