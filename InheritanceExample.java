@@ -5,7 +5,6 @@ import java.util.ArrayList;
 class InheritanceExample{
     public static void main(String[] args){
         System.out.println("This is a driver class demoinstrating inheritance");
-        Employee myEmployee = new Employee();
         Programmer myProgrammer = new Programmer();
         Manager myManager = new Manager();
 
@@ -14,12 +13,6 @@ class InheritanceExample{
         myManager.attendTraining(new String[] {"Modelnetics","Java 100","MBA 100"});
         HRExecutive myHRExecutive = new HRExecutive();
         myHRExecutive.conductInterview();
-
-        // Demo accessing a child class by it's parrent class variable type
-        Employee emp = new HRExecutive();
-        // emp.specialization = new String[] {"Staffing","Getting Rich"};
-        // Above doesnt work, below does because its part of the Employee class
-        emp.name = "Jane Testcase";
 
         Interviewer emp2 = new HRExecutive();
         // emp2.name = "This should fail as this defined interface doesn't know about this field.";
@@ -31,12 +24,30 @@ class InheritanceExample{
         interviewTeam.add(myManager);
         interviewTeam.add(myHRExecutive);
         interviewTeam.add(emp2);
+        System.out.println("***Team Interview***");
         for(Interviewer element : interviewTeam)
             element.conductInterview();
+        
+
+        //Polymorphism example
+        System.out.println("***Team Project Starts***");
+        // Create Team
+        Employee teamMember1 = new Programmer();
+        Employee teamMember2 = new Manager();
+        Employee teamMember3 = new HRExecutive();
+        // Build Team ArrayList
+        ArrayList<Employee> myTeam = new ArrayList<>();
+        myTeam.add(teamMember1);
+        myTeam.add(teamMember2);
+        myTeam.add(teamMember3);
+        // Start the project
+        for(Employee element : myTeam)
+            element.startProjectWork();
+       
     }
 }
 
-class Employee {
+abstract class Employee {
     Employee() {
         System.out.println("Object Created - Employee");
     }
@@ -44,6 +55,12 @@ class Employee {
     String Address;
     String phoneNumber;
     float experience;
+
+    public void reachOffice(){
+        System.out.println("reached office - Gurgaon, India");
+    }
+
+    public abstract void startProjectWork();
 }
 
 class Programmer extends Employee implements Trainable{
@@ -59,6 +76,14 @@ class Programmer extends Employee implements Trainable{
             System.out.println("Training in " + element);
 
     }
+
+    public void startProjectWork() {
+        defineClasses();
+        unitTestCode();
+    }
+    
+    private void defineClasses() { System.out.println("define classes"); }
+    private void unitTestCode() { System.out.println("unit test code"); }
 }
 
 class Manager extends Employee implements Interviewer, Trainable{
@@ -77,6 +102,16 @@ class Manager extends Employee implements Interviewer, Trainable{
         for(String element : trainingSchedule)
             System.out.println("Training in " + element);
     }
+
+    public void startProjectWork() {
+        meetingWithCustomer();
+        defineProjectSchedule();
+        assignRespToTeam();
+    }
+
+    private void meetingWithCustomer() { System.out.println("meet Customer"); }
+    private void defineProjectSchedule() { System.out.println("Project Schedule"); }
+    private void assignRespToTeam() { System.out.println("team work starts"); }
 }
 
 class HRExecutive extends Employee implements Interviewer{
@@ -88,6 +123,8 @@ class HRExecutive extends Employee implements Interviewer{
     public void conductInterview() {
         System.out.println("HRExecutive - conducting intervew");
     }
+
+    public void startProjectWork() { System.out.println("Go Golfing"); }
 }
 
 interface Trainable {
